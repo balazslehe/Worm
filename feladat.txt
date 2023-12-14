@@ -1,0 +1,40 @@
+1.  Hozzunk létre egy üres html oldalt, melynek címe legyen 'Féreg'. 
+    Az oldalon belül csak javaScript, és csak css kód használható!
+    HTML KÓD NEM HASZNÁLHATÓ !!!!
+
+2.  Hozz létre egy játékteret, fekete háttérszínnel és 5px széles szürke szegéllyel!
+    A létrehozott játéktéren belül alakíts ki 8x8 egyforma csempét!
+    A játékteret helyezd vízszintesen a képernyő közepére. 
+    Felső-alsó margója legyen 20px.
+
+3.  Legyen a csempéknek szegélye, ami 4px széles, és legyen margójuk is, ami 2px széles!
+    A csempék magassága, szélessége legyen pontosan 80px (szegéllyel együtt).
+    Hozzunk létre egy stílus osztályt az alapértelmezett csempe stílus leírására! 
+
+4.  Hozzunk létre két újabb stílus osztályt a csempéknek, amelyek most csak abban különböznek, hogy milyen
+    színt társítunk a szegélyükhöz. Az egyik ('enabled') osztály esetén zöld, a másik ('disabled') osztály esetén
+    világos szürke színt használjunk! 
+
+5.  A csempék létrehozásánál 50% eséllyel tartozzanak az 'enabled' vagy 'disabled' osztályok egyikébe!
+
+6.  Csak az 'enabled' csempékhez adjunk egy új tulajdonságot (attribútumot), 'clicks' névvel, ami kezdetben 0 értéket kapjon!
+
+7.  Minden csempének legyen egy 'row' és 'col' attribútuma, ami a csempe sor és oszlopindexét kapja értékül!
+
+8.  Csak az 'enabled' csempékhez adjunk eseménykezelőt, ami egérrel való kattintásra hívódig meg!
+
+9.  Egérkattintás hatására növeljük a csempéhez rendelt 'clicks' attribútumot egy küszöbértékig, ami legyen 3!
+
+10. Ha egy csempén elértük a maximális kattintás-számot, akkor változzon a csempe szegélye pirosra, 
+    és szüntessük meg a csempe eseménykezelőjét.
+
+11. Olvassuk be a kukacot a 'worm.png' fájlból! A kukacnak létrehozott objektumot rendeljük kezdetben az [5, 2] indexű csempéhez,
+    de ne használjunk ciklust, inkább a megfelelő javaScript lekérdezéssel válasszuk ki az adott csempét!
+
+12. Minden érvényes kattintás után, helyezzük át a kukacot a legutóbbi kattintással kijelölt csempére.
+
+13. Mikor az egérkurzor egy adott csempe fölött van, legyen a csempe háttérszíne sárga.
+
+14. Változtasd a kurzor alakját mutatóvá, ha a féreg áthelyezhető a csempébe!
+
+15. Ha már nem tudunk sehova sem lépni, jelezz a felhasználó felé, hogy vége a játéknak!
