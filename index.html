@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Féreg</title>
+    <style>
+        table{
+            background-color: black;
+            border: 5px solid gray;
+            width: auto;
+            margin: 20px auto;
+        }
+        td{
+            margin: 2px;
+            border: 4px solid white;
+            width: 80px;
+            height: 80px;
+            min-width: 80px;
+            box-sizing: border-box;
+        }
+        td:hover{
+            background-color: yellow;
+        }
+        td.enabled{
+            border: 4px solid green;
+        }
+        td.disabled{
+            border: 4px solid lightgray;
+        }
+        img{
+            width: 50px;
+            height: 50px;
+            display: flex;
+        }
+        td.enabled:not(.ended){
+            cursor: pointer;
+        }
+        td.ended{
+            border: 4px solid red;
+        }
+    </style>
+</head>
+<body>
+    <script>
+        let table = document.createElement("table");
+        document.body.append(table);
+        let tbody = document.createElement("tbody");
+        table.append(tbody);
+
+        for(let i = 0; i < 8; i++){
+            let sor = document.createElement("tr");
+            tbody.append(sor);
+            for(let j = 0; j < 8; j++){
+                let oszlop = document.createElement("td");
+                sor.append(oszlop);
+                if(Math.random() >= 0.5){
+                    oszlop.classList.add("enabled");
+                    oszlop.setAttribute("clicks", 0);
+                    oszlop.addEventListener("click", clicked);
+                }else{
+                    oszlop.classList.add("disabled");
+                }
+                oszlop.setAttribute("row", i);
+                oszlop.setAttribute("col", j);
+            }
+        }
+        let img = document.createElement("img");
+        let start = document.querySelector('td[row="5"][col="2"]');
+        img.src = "worm.png";
+        img.id = "worm";
+        start.appendChild(img);
+
+        function clicked(){
+            let sor = event.currentTarget,
+                isChildImg = sor.querySelector("img");
+                //Rossz tagolás, eggyel hátrébb kellett volna tenni.
+                if(!isChildImg){
+                    let img = document.getElementById("worm");
+                    let clicks = sor.getAttribute("clicks");
+                    let IntClick = parseInt(clicks);
+                    IntClick++;
+                    if(IntClick > 3){
+                        sor.classList.add("ended");
+                        sor.removeEventListener("click", clicked);
+                        //td változó helyett sor változónak kellett volna lennie
+                        let enableds = document.querySelectorAll("td.enabled:not(.ended)");
+                        if(!enableds.length){
+                            alert("A játékos időnek vége!");
+                        }
+                    } else{
+                        sor.setAttribute("clicks", IntClick);
+                        sor.append(img);
+                    }
+                }
+        }
+    </script>
+</body>
+</html>
